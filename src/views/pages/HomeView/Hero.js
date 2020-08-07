@@ -63,7 +63,7 @@ const useStyles = makeStyles(theme => ({
       width: '100%'
     },
     '&:hover': {
-      backgroundColor: 'rgba(166, 0, 0, 0.8)',
+      backgroundColor: 'rgba(166, 0, 0, 0.8)'
     }
   }
 }));
@@ -83,10 +83,7 @@ function Hero({ className, ...rest }) {
               height="100%"
               className={clsx(classes.extraPadding, className)}
             >
-              <Typography
-                variant="h1"
-                gutterBottom
-              >
+              <Typography variant="h1" gutterBottom>
                 Learn for Cause
               </Typography>
               <Typography variant="h1">Code for Cause</Typography>

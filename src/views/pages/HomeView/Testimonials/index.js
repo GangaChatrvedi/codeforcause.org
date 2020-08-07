@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: 70,
     paddingRight: 70,
     paddingTop: 100,
-    paddingBottom: 170,
+    paddingBottom: 220,
     [theme.breakpoints.down('xs')]: {
       paddingLeft: 15,
       paddingRight: 15
@@ -35,9 +35,9 @@ const Testimonials = ({ students }) => {
         >
           What do our Mentees Say About Us
         </Typography>
-        <Grid container spacing={2} component="div">
+        <Grid container component="div">
           {students.map((student, i) => (
-            <Grid item key={i} md={3} sm={6} xs={12}>
+            <Grid item key={i} lg={3} md={6} sm={6} xs={12}>
               <TestimonialCard student={student} />
             </Grid>
           ))}

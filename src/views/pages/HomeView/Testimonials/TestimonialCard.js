@@ -5,25 +5,30 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Box from '@material-ui/core/Box';
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
-
-/** @jsx jsx */
-import {jsx} from '@emotion/core';
 import styled from '@emotion/styled';
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
-    flexWrap: 'wrap',
-    padding: '130px 0px',
+    padding: '80px 24px',
     '& > *': {
-      margin: theme.spacing(1),
       width: theme.spacing(16),
       height: theme.spacing(16)
+    },
+    [theme.breakpoints.down('xs')]: {
+      padding: '80px 24px'
     }
   },
-  small: {
-    width: theme.spacing(3),
-    height: theme.spacing(3)
+  large: {
+    width: 68,
+    height: 68,
+    margin: 'auto'
+  },
+  extraMargin: {
+    marginTop: '0',
+    [theme.breakpoints.down('xs')]: {
+      marginTop: '70px'
+    }
   }
 }));
 
@@ -32,17 +37,24 @@ function TestimonialCard({ student }) {
 
   return (
     <div className={classes.root}>
-      <Box style={{ margin: '20px 10px'}}>
+      <Box className={classes.extraMargin}>
         <Message>
-          <FormatQuoteIcon
-            fontSize="large"
-            style={{ margin: '0px 115px', color: 'purple' }}
-          />
+          <Typography variant="h3" align="center">
+            <FormatQuoteIcon fontSize="large" style={{ color: 'purple' }} />
+          </Typography>
+
           <Typography variant="h3" align="center" style={{ fontSize: '20px' }}>
             {student.msg}
           </Typography>
         </Message>
-        <Box style={{ margin: '2.3rem 8.2rem' }}>
+        <Typography
+          component="div"
+          style={{
+            width: '250px',
+            margin: 'auto',
+            marginTop: '30px'
+          }}
+        >
           <Avatar
             alt={student.name}
             src="./quote.png"
@@ -52,18 +64,22 @@ function TestimonialCard({ student }) {
           <Typography
             variant="h5"
             align="center"
-            style={{ margin: '10px -5px' }}
+            style={{
+              margin: 'auto'
+            }}
           >
             {student.name}
           </Typography>
           <Typography
-            variant="h7"
+            variant="body2"
             align="center"
-            style={{ margin: '10px' }}
+            style={{
+              margin: 'auto'
+            }}
           >
-            {student.subName}
+            {student.name}
           </Typography>
-        </Box>
+        </Typography>
       </Box>
     </div>
   );
@@ -72,28 +88,28 @@ function TestimonialCard({ student }) {
 const Message = styled.div`
   position: relative;
   height: 200px;
-  width: 300px;
+  width: 250px;
   max-width: 400px;
-  background: white;
+  background: #fff;
 
   padding: 40px 20px;
   box-sizing: box-order;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.12);
   &:after {
     position: absolute;
     width: 20px;
     height: 20px;
-    border-top: 0px solid black;
-   
+
     top: 100%;
     left: 50%;
     margin-left: -10px;
     content: '';
     transform: rotate(45deg);
     margin-top: -10px;
-    background: white;
+    background: #ffffff;
   }
   &:hover {
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.12);
   }
 `;
 
